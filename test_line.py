@@ -38,3 +38,16 @@ def test_calc_y(t1, t2, x, expec_y):
     from line import calc_y
     y = calc_y(t1,t2,x)
     assert (y == expec_y)
+
+
+@pytest.mark.parametrize("t1, t2, t3, expected", [
+    ((1,1), (4,4), (3,3), True),
+    ((1,1), (4,4), (3,6), False),
+    ((1.5,3.5), (3,6.5), (2.5,5.5), True),
+    ((0.5,1), (2.5,5), (3,-6), False),
+    ((1,3), (2,3.5), (3,4), True)
+])
+def test_verify_on_a_line(t1, t2, t3, expected):
+    from line import verify_on_a_line
+    res = verify_on_a_line(t1, t2, t3)
+    assert(res == expected)

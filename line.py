@@ -22,3 +22,10 @@ def calc_y(t1, t2, x):
     delta = calc_delta(x1, y1, slope)
     y = slope * x + delta
     return y
+
+
+def verify_on_a_line(t1, t2, t3):
+    x3 = t3[0]
+    y3 = t3[1]
+    y_on_the_line = calc_y(t1,t2,x3)
+    return (y3 == y_on_the_line)
